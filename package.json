@@ -1,5 +1,5 @@
 {
-  "name": "rigelapp",
+  "name": "rigel-cli",
   "bin": {
     "rigel": "./bin/app"
   },
