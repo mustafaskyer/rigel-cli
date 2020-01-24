@@ -1,0 +1,35 @@
+{
+  "name": "rigelapp",
+  "bin": {
+    "rigel": "./bin/app"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.1.0",
+    "esm": "^3.2.25",
+    "execa": "^4.0.0",
+    "figlet": "^1.2.4",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^7.0.3",
+    "inquirer-autocomplete-prompt": "^1.0.1",
+    "inquirer-checkbox-plus-prompt": "^1.0.1",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.15",
+    "nodegit": "^0.26.4",
+    "opn": "^6.0.0",
+    "pkg-install": "^1.0.0",
+    "request": "^2.88.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0",
+    "sinon": "^8.1.0"
+  }
+}
