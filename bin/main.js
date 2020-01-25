@@ -1,11 +1,11 @@
 import program from 'commander'
 import pkg from '../package.json'
 
-import opn from 'opn'
+import opn from 'open'
 
 import { createProject } from '../lib/init.js'
 import { viewQuestions } from '../commands/add'
-import checkOptions from '../commands/options'
+import handleCreateReduxScreen from '../commands/reduxscreenOptions'
 
 export function main () {
   program
@@ -13,6 +13,7 @@ export function main () {
     .option('--imc', 'import components')
   // .option('--ims', 'import screens')
     .option('--ima', 'import screens')
+    .option('--reduxscreen', 'import screens')
   // .option('--imst', 'import screens')
   // .option('--imsg', 'import screens')
     .option('--export', 'import screens')
@@ -36,8 +37,14 @@ export function main () {
         console.info('run => rigel add --help for more info')
         return program.outputHelp()
       }
-      const res = await checkOptions(program)
-      viewQuestions(name, res)
+      if (program.reduxscreen) {
+        handleCreateReduxScreen(name, program.imc)
+        return
+      }
+      // const res = await checkOptions(program)
+      // console.log('@res', res)
+      // return;
+      viewQuestions(name)
     })
 
   program.command('issues')
