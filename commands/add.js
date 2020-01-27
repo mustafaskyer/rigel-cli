@@ -6,7 +6,7 @@ const { getAnswers } = require('../lib/add')
 const types = [
   { name: 'screen', value: 'scr' },
   { name: 'component', value: 'comp' },
-  { name: 'style', value: 'style' },
+  // { name: 'style', value: 'style' },
   { name: 'reducer', value: 'reducer' },
   { name: 'reducer action', value: 'reducer_action' },
   { name: 'reducer types', value: 'reducer_types' },
