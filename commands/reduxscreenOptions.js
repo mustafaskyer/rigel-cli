@@ -1,6 +1,7 @@
 import ls from '../lib/listFiles'
 import handle from '../lib/handle'
 import getFilesList from '../lib/options'
+import ora from 'ora';
 import {
   createFile,
   getOnlineFileContent,
@@ -11,7 +12,8 @@ import {
 import { map } from 'lodash'
 
 async function createScreen(name, comps) {
-  // create new directory in App/Screens path
+  const spin = ora()
+  if (!comps) spin.start(`creating screen ${name}`)
   const createdDir = await createDir('App/screens', name)
   if (createdDir) {
     const p = `App/screens/${name}`
@@ -27,7 +29,10 @@ async function createScreen(name, comps) {
         importInto(sPath.path, `import ${comp.slice(0, -3)} from 'components/${comp.slice(0, -3)}'`)
       })
     }
+    spin.succeed(`created ${name} with components in App/screens/${name}`)
+    return
   }
+  spin.succeed(`created ${name} in App/screens/${name}`)
 }
 
 async function createAction(name, casses) {
@@ -88,9 +93,7 @@ async function createReducer(name, casses) {
 
 async function createTypes(name) {
   const createdTypes = await createFile('App/redux/types', name)
-  console.log('@createdTypes', createdTypes)
   const onlineTypesContent = await getOnlineFileContent('type')
-  console.log('@onlineTypesContent', JSON.parse(onlineTypesContent))
   const cmnt = await onlineTypesContent.replace('REDUX_CASES', `${name.toUpperCase()}`)
   const rCase = await cmnt.replaceAll('CASE', `${name.toUpperCase()}_CASE`)
   await handle.writeFileSync(`App/redux/types/${name}.js`, JSON.parse(rCase))
@@ -115,14 +118,32 @@ export default async function handleCreateReduxScreen(name, shouldImportComponen
      * - should add types and export from index
      * - should enable add components
      */
+
+  const spin = ora();
+
+  spin.start(`creating types ${name}`)
   const createdTypes = await createTypes(name) // return three types [success,failed, normal]
+  spin.succeed(`created ${name} in App/redux/types/${name}.js`)
+
+  spin.start(`creating action ${name}`)
   await createAction(name, createdTypes)
+  spin.succeed(`created ${name} in App/redux/actions/${name}.js`)
+
+
+  spin.start(`creating reducer ${name}`)
   await createReducer(name, createdTypes)
+  spin.succeed(`created ${name}Reducer in App/redux/reducers/${name}Reducer.js`)
+
+  spin.start(`creating saga ${name}`)
   await createSaga(name, createdTypes)
+  spin.succeed(`created ${name} in App/redux/sagas/${name}.js`)
+
+
   if (shouldImportComponents) {
     const componentsPath = await handle.getPath('App/Components')
     ls(componentsPath.path, (files) => {
       getFilesList(files, 'Components', comps => createScreen(name, comps))
+      spin.succeed(`components imported`)
     })
   } else {
     createScreen(name)
