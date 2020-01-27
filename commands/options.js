@@ -17,7 +17,6 @@ export default async function checkOptions (progrm) {
         getFilesList(files, 'Actions', (selectedActions) => resolve(selectedActions))
       })
     }else if (progrm.export) {
-      console.log('@exporting to ...')
       getSelectedPath((selectedPaths) => resolve(selectedPaths))
     }else {
       resolve(true)
