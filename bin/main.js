@@ -3,7 +3,7 @@ import pkg from '../package.json'
 
 import opn from 'open'
 
-import { createProject } from '../lib/init.js'
+import createProject from '../lib/init.js'
 import { viewQuestions } from '../commands/add'
 import handleCreateReduxScreen from '../commands/reduxscreenOptions'
 
@@ -11,11 +11,8 @@ export function main () {
   program
     .version(pkg.version)
     .option('--imc', 'import components')
-  // .option('--ims', 'import screens')
     .option('--ima', 'import screens')
     .option('--reduxscreen', 'import screens')
-  // .option('--imst', 'import screens')
-  // .option('--imsg', 'import screens')
     .option('--export', 'import screens')
 
   program.command('init [name]')
@@ -42,7 +39,6 @@ export function main () {
         return
       }
       // const res = await checkOptions(program)
-      // console.log('@res', res)
       // return;
       viewQuestions(name)
     })
