@@ -6,6 +6,7 @@ import opn from 'open'
 import createProject from '../lib/init.js'
 import { viewQuestions } from '../commands/add'
 import handleCreateReduxScreen from '../commands/reduxscreenOptions'
+import checkOptions from '../commands/options';
 
 export function main () {
   program
@@ -38,8 +39,10 @@ export function main () {
         handleCreateReduxScreen(name, program.imc)
         return
       }
-      // const res = await checkOptions(program)
-      // return;
+
+      if(program.export){
+        viewQuestions(name, { export: program.export })
+      }
       viewQuestions(name)
     })
 

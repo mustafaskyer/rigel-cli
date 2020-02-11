@@ -23,8 +23,17 @@ async function createScreen(name, comps) {
     const onlineStyleContent = await getOnlineFileContent('style')
     await replaceFileContentWith(onlineScreenContent, 'Screen', name, createdScreen)
     await replaceFileContentWith(onlineStyleContent, 'Screen', name, createdStyle)
+
+    const sPath = handle.getPath(`App/screens/${name}/index.js`)
+
+    importInto(sPath.path, `import { ${name.toLowerCase()} } from 'redux-actions'`)
+    await handle.appendToFile(
+      'actions = {', // occurance
+      `${name.toLowerCase()}`, // value to replace
+      sPath.path // path of file
+    )
+
     if (comps) {
-      const sPath = handle.getPath(`App/screens/${name}/index.js`)
       map(comps.Components, comp => {
         importInto(sPath.path, `import ${comp.slice(0, -3)} from 'components/${comp.slice(0, -3)}'`)
       })
@@ -37,14 +46,14 @@ async function createScreen(name, comps) {
 
 async function createAction(name, casses) {
   const impCasesStmt = casses.join(', ')
-  const createdAction = await createFile('App/redux/actions', `${name}`)
+  const createdAction = await createFile('App/redux/actions', `${name.toLowerCase()}`)
   const onlineActionContent = await getOnlineFileContent('action')
-  await replaceFileContentWith(onlineActionContent, 'Action', name, createdAction)
+  await replaceFileContentWith(onlineActionContent, 'Action', name.toLowerCase(), createdAction)
   const actionIndexPath = await handle.getPath('App/redux/actions/index.js')
-  await importInto(`App/redux/actions/${name}.js`, `import { ${impCasesStmt} } from 'redux-types'`, ';')
+  await importInto(`App/redux/actions/${name.toLowerCase()}.js`, `import { ${impCasesStmt} } from 'redux-types'`, ';')
   await handle.appendToFile(
     ';',
-    `export * from './${name}'`,
+    `export * from './${name.toLowerCase()}'`,
     actionIndexPath.path,
   )
 }
@@ -52,36 +61,36 @@ async function createAction(name, casses) {
 async function createSaga(name, casses) {
   const impCasesStmt = casses.join(', ')
   const onlineActionContent = await getOnlineFileContent('saga')
-  const wUpdated = await onlineActionContent.replace('watch()', `watch${name}()`)
+  const wUpdated = await onlineActionContent.replace('watch()', `watch${name.toLowerCase()}()`)
   const sUpdated = await wUpdated.replace('SUCCESS', casses[0])
   const fUpdated = await sUpdated.replace('FAILED', casses[1])
-  const tUpdated = await fUpdated.replace('//type', casses[2])
-  const weUpdated = await tUpdated.replace('//handle', `handle`)
-  await handle.writeFileSync(`App/redux/sagas/${name}.js`, JSON.parse(weUpdated))
+  const tUpdated = await fUpdated.replace(`'TYPE'`, casses[2])
+  // const weUpdated = await tUpdated.replace('//handle', `handle`)
+  await handle.writeFileSync(`App/redux/sagas/${name.toLowerCase()}.js`, JSON.parse(tUpdated))
   const sagasIndexPath = await handle.getPath('App/redux/sagas/index.js')
-  await importInto(`App/redux/sagas/${name}.js`, `import { ${impCasesStmt} } from 'redux-types'`, ';')
+  await importInto(`App/redux/sagas/${name.toLowerCase()}.js`, `import { ${impCasesStmt} } from 'redux-types'`, ';')
   await handle.appendToFile(
     ';',
-    `import watch${name} from './${name}'`,
+    `import watch${name.toLowerCase()} from './${name.toLowerCase()}'`,
     sagasIndexPath.path
   )
   await handle.appendToFile(
     'yield all([',
-    `fork(watch${name}),`,
+    `fork(watch${name.toLowerCase()}),`,
     sagasIndexPath.path
   )
 }
 
 async function createReducer(name, casses) {
   const impCasesStmt = casses.join(', ')
-  const createdReducer = await createFile('App/redux/reducers', `${name}Reducer`)
+  const createdReducer = await createFile('App/redux/reducers', `${name.toLowerCase()}Reducer`)
   const onlineFile = await getOnlineFileContent('reducer')
   await replaceFileContentWith(onlineFile, '', '', createdReducer)
   const reducerIndexPath = await handle.getPath('App/redux/reducers/index.js')
-  await importInto(`App/redux/reducers/${name}Reducer.js`, `import { ${impCasesStmt} } from 'redux-types'`, ';')
+  await importInto(`App/redux/reducers/${name.toLowerCase()}Reducer.js`, `import { ${impCasesStmt} } from 'redux-types'`, ';')
   await handle.appendToFile(
     ';', // occurance
-    `import ${name.toLowerCase()} from './${name}Reducer';`, // value to replace
+    `import ${name.toLowerCase()} from './${name.toLowerCase()}Reducer';`, // value to replace
     reducerIndexPath.path // path of file
   )
   await handle.appendToFile(

@@ -20,7 +20,7 @@ function validate (answer) {
 
   return true
 }
-const viewQuestions = (name, res) => {
+const viewQuestions = (name, obj) => {
   inquirer.prompt([{
     type: 'list',
     message: 'Choose File Type',
@@ -28,7 +28,7 @@ const viewQuestions = (name, res) => {
     choices: types,
     validate
   }]).then(listAnswers => {
-    getAnswers(listAnswers, name, res)
+    getAnswers(listAnswers, name, obj)
   })
 }
 
