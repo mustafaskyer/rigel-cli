@@ -3,10 +3,14 @@
   "bin": {
     "rigel": "./bin/app"
   },
+"repository": {
+  "type": "git",
+  "url": "https://github.com/mustafaskyer/rigel-cli.git"
+},
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "dependencies": {
     "chalk": "^3.0.0",
