@@ -10,25 +10,32 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^3.0.0",
+    "change-case": "^4.1.1",
     "commander": "^4.1.0",
     "esm": "^3.2.25",
     "execa": "^4.0.0",
     "figlet": "^1.2.4",
+    "fs-jetpack": "^2.2.3",
     "fuzzy": "^0.1.3",
+    "handlebars": "^4.7.6",
     "inquirer": "^7.0.3",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "inquirer-checkbox-plus-prompt": "^1.0.1",
     "lodash": "^4.17.15",
+    "lower-case-first": "^2.0.1",
     "open": "^7.0.0",
     "ora": "^4.0.3",
     "pkg-install": "^1.0.0",
     "request": "^2.88.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "upper-case-first": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/parser": "^7.9.4",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
     "mocha": "^7.0.0",
+    "prettier": "2.0.2",
     "sinon": "^8.1.0"
   }
 }
