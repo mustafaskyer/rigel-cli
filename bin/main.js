@@ -1,20 +1,22 @@
 import program from 'commander'
 import pkg from '../package.json'
-
+import ora from 'ora';
 import opn from 'open'
 
 import createProject from '../lib/init.js'
-import { viewQuestions } from '../commands/add'
+import { viewOptions } from '../commands/add'
 import handleCreateReduxScreen from '../commands/reduxscreenOptions'
-import checkOptions from '../commands/options';
+// import checkOptions from '../commands/options';
 
+
+const spin = ora()
 export function main () {
   program
     .version(pkg.version)
     .option('--imc', 'import components')
-    .option('--ima', 'import screens')
-    .option('--reduxscreen', 'import screens')
-    .option('--export', 'import screens')
+    .option('--imct', 'import actions')
+    .option('--connect', 'Connect All Stuff together (create screen with reducer, action, saga)')
+    .option('--export', 'export screen to specific path')
 
   program.command('init [name]')
     .description('initialize new app')
@@ -25,25 +27,26 @@ export function main () {
       createProject(name)
     })
 
-  program.command('add [name]')
+  program.command('add <name>')
     .description('adding new files such as components, screens, reducers, actions, sagas, types')
     .usage('<name>')
     .helpOption()
-    .action(async (name, options) => {
+    .action(async (n, op) => {
+      const name = String(program.args)
+
+      if(/^\d/.test(name)){
+        spin.fail(`name can't start with number`)
+        return;
+      }
       if (!name) {
         console.error('NAME REQUIRED')
         console.info('run => rigel add --help for more info')
         return program.outputHelp()
       }
-      if (program.reduxscreen) {
-        handleCreateReduxScreen(name, program.imc)
-        return
-      }
 
-      if(program.export){
-        viewQuestions(name, { export: program.export })
-      }
-      viewQuestions(name)
+      const options = program.rawArgs.slice(4)
+
+      viewOptions(name, options)
     })
 
   program.command('issues')
