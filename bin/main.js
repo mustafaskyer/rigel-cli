@@ -17,6 +17,8 @@ export function main () {
     .option('--imct', 'import actions')
     .option('--connect', 'Connect All Stuff together (create screen with reducer, action, saga)')
     .option('--export', 'export screen to specific path')
+    .option('-case, --case <caseValue>', 'option')
+    .option('--redux', 'Connect All Stuff together (create screen with reducer, action, saga)')
 
   program.command('init [name]')
     .description('initialize new app')
@@ -46,7 +48,7 @@ export function main () {
 
       const options = program.rawArgs.slice(4)
 
-      viewOptions(name, options)
+      viewOptions(name, options, program)
     })
 
   program.command('issues')
