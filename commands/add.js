@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 // const { handleOptions } = require('../lib/add')
 const { handleOptions } = require('../lib/add/index');
-const { CONNECT_ALL } = require('../lib/types');
+const { CONNECT_ALL, REDUX } = require('../lib/types');
 
 const types = [
 	{ name: 'screen', value: 'scr' },
@@ -21,9 +21,12 @@ function validate(answer) {
 
 	return true;
 }
-const viewOptions = (name, options) => {
-	if (options.includes('--connect')) {
-		handleOptions({ selected: CONNECT_ALL }, name, options);
+const viewOptions = (name, options, programm) => {
+	if (programm.connect) {
+		handleOptions({ selected: CONNECT_ALL }, name, options, programm);
+		return;
+	}else if(programm.redux){
+		handleOptions({ selected: REDUX }, name, options, programm);
 		return;
 	}
 	inquirer
@@ -37,7 +40,7 @@ const viewOptions = (name, options) => {
 			}
 		])
 		.then((selected) => {
-			handleOptions(selected, name, options);
+			handleOptions(selected, name, options, programm);
 		});
 };
 
