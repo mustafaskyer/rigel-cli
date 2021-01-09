@@ -35,22 +35,18 @@ exports.addRedux = async (name) => {
     _.map(answers, async (option) => {
         if (option === 'reducer' || option === 'all') {
             addReducer(name, types, path)
-            return;
         }
 
         if (option === 'action' || option === 'all') {
             addAction(name, types, path)
-            return;
         }
         
         if (option === 'selector' || option === 'all') {
             addSelector(name, path)
-            return;
         }
 
         if (option === 'saga' || option === 'all') {
             addSaga(name, types, path)
-            return;
         }
 
         if (option === 'types' || option === 'all') {
