@@ -2,7 +2,7 @@ const jetpack = require('fs-jetpack');
 const ora = require('ora')
 const appendToFile = async (path, occurances, content) => {
 	const spin = ora()
-    const file = await jetpack.readAsync(path, 'utf8');
+	const file = await jetpack.readAsync(path, 'utf8');
 	const index = occurances.findIndex((occr, i) => file.indexOf(occr) !== -1);
 	if (index !== -1) {
 		const _file = file.replace(occurances[index], `${occurances[index]}\n${content}`);
