@@ -59,7 +59,9 @@
 		"sinon": "^8.1.0"
 	},
 	"peerDependencies": {
-		"@rigel/utils": "^1.0.0"
+		"@rigel/utils": "^1.0.0",
+		"@rigel/commands": "^1.0.0",
+		"@rigel/logger": "^1.0.0"
 	},
 	"engines": {
 		"node": ">=8.9"
