@@ -19,7 +19,7 @@ exports.addReducer = async (name, types, path) => {
 		type3: types[2]
 	});
 	gFile({ path: `${path}`, name, type: 'reducer', content });
-	const { path: reducerIndexPath } = findPath(`redux/index.reducers.js`);
+	const { path: reducerIndexPath } = findPath(`states/index.reducers.js`);
 	await appendToFile(reducerIndexPath, [ 'combineReducers({' ], `${String(name).toLowerCase()},`);
 	await appendToFile(
 		reducerIndexPath,

@@ -13,7 +13,7 @@ exports.addSaga = async (name, types, path) => {
 		type3: types[2]
 	});
 	gFile({ path: `${path}`, name, type: 'saga', content });
-	const { path: sagasIndexPath } = findPath(`redux/index.sagas.js`);
+	const { path: sagasIndexPath } = findPath(`states/index.sagas.js`);
 	await appendToFile(sagasIndexPath, [ 'yield all([' ], `fork(${name}),`);
 	await appendToFile(sagasIndexPath, [ ';', '' ], `import ${name} from './${name}/${name}.saga'`);
 	await formatFile(sagasIndexPath);

@@ -7,7 +7,7 @@ exports.addTypes = async (name, types, path) => {
 	const sourcetemplate = compile(typesRnSource);
 	const content = sourcetemplate({ name: name.toUpperCase(), date: new Date() });
 	gFile({ path: `${path}`, name, type: 'types', content });
-	const { path: typesIndexPath } = findPath(`redux/index.types.js`);
+	const { path: typesIndexPath } = findPath(`states/index.types.js`);
 	await appendToFile(
 		typesIndexPath,
 		[ ';', '' ],

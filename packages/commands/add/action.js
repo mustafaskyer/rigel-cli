@@ -13,7 +13,7 @@ exports.addAction = async (name, types, path) => {
 	const sourcetemplate = compile(actionRnSource);
 	const content = sourcetemplate({ name, date: new Date(), type: types[0] });
 	gFile({ path: `${path}`, name, type: 'action', content });
-	const { path: actionsIndexPath } = findPath(`redux/index.actions.js`);
+	const { path: actionsIndexPath } = findPath(`states/index.actions.js`);
 	await appendToFile(actionsIndexPath, [ ';', '' ], `export { ${name} } from './${name}/${name}.action'`);
 	await formatFile(actionsIndexPath);
 };

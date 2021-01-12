@@ -25,7 +25,7 @@ exports.addRedux = async (name) => {
 		name
 	});
 
-    const { status, path, message } = findPath(`redux/${name}`);
+    const { status, path, message } = findPath(`states/${name}`);
 	const types = [
 		String(name).toUpperCase(),
 		String(name + '_success').toUpperCase(),
