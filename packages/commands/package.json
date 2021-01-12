@@ -1,14 +1,14 @@
 {
   "name": "@rigel/commands",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Rigel Cli Commands",
   "private": "false",
   "main": "index.js",
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "dependencies": {
-    "@rigel/constants": "^0.0.3",
-    "@rigel/logger": "^0.0.3",
-    "@rigel/utils": "^0.0.3"
+    "@rigel/constants": "^0.1.0",
+    "@rigel/logger": "^0.1.0",
+    "@rigel/utils": "^0.1.0"
   }
 }

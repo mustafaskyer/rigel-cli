@@ -1,6 +1,6 @@
 {
   "name": "@rigel/utils",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "private": "false",
   "description": "Utilities for rigelcli app",
   "main": "index.js",
@@ -11,8 +11,8 @@
     "@babel/preset-env": "^7.11.0"
   },
   "dependencies": {
-    "@rigel/commands": "^0.0.3",
-    "@rigel/constants": "^0.0.3",
-    "@rigel/logger": "^0.0.3"
+    "@rigel/commands": "^0.1.0",
+    "@rigel/constants": "^0.1.0",
+    "@rigel/logger": "^0.1.0"
   }
 }
