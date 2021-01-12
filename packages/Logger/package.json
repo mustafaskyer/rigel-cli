@@ -1,7 +1,6 @@
 {
   "name": "@rigel/logger",
   "version": "1.2.2",
-  "private": "false",
   "description": "Logger for messages",
   "main": "index.js",
   "author": "Mustafa Elsayed",

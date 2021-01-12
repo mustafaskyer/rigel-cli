@@ -1,20 +1,17 @@
 {
   "name": "@rigel/utils",
   "version": "1.2.2",
-  "private": "false",
   "description": "Utilities for rigelcli app",
   "main": "index.js",
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-env": "^7.11.0"
+  },
+  "dependencies": {
     "@rigel/commands": "^0.1.0",
     "@rigel/constants": "^0.1.0",
     "@rigel/logger": "^0.1.0"
-  },
-  "dependencies": {
-    "Logger": "^0.0.0",
-    "logger": "^0.0.1"
   }
 }
