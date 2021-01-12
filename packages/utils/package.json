@@ -1,6 +1,6 @@
 {
   "name": "@rigel/utils",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": "false",
   "description": "Utilities for rigelcli app",
   "main": "index.js",

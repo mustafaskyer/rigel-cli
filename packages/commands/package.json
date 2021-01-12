@@ -1,6 +1,6 @@
 {
   "name": "@rigel/commands",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Rigel Cli Commands",
   "private": "false",
   "main": "index.js",
