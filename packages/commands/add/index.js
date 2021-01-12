@@ -17,12 +17,12 @@ const add = async ({ type, name, options }) => {
 	const types = {
 		component: 'add component into App/components',
 		screen: 'add screen into App/screens',
-		action: 'add action into App/redux/actions',
-		reducer: 'add reducer into App/redux/reducers',
-		saga: 'add saga into App/redux/sagas',
-		selector: 'add selector into App/redux/selectors',
+		action: 'add action into App/states/actions',
+		reducer: 'add reducer into App/states/reducers',
+		saga: 'add saga into App/states/sagas',
+		selector: 'add selector into App/states/selectors',
 		redux: 'add reducer, action, saga, selector, type',
-		api: 'add reducer, action, saga, selector, type',
+		api: 'add api into App/apis',
 	};
 
 	if (!types[type]) {
