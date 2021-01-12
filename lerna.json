@@ -1,9 +1,6 @@
 {
   "packages": [
-    "packages/commands",
-    "packages/constants",
-    "packages/Logger",
-    "packages/utils"
+    "packages/*"
   ],
   "version": "1.2.1",
   "npmClient": "yarn",

@@ -9,6 +9,8 @@
   "dependencies": {
     "@rigel/constants": "^0.1.0",
     "@rigel/logger": "^0.1.0",
-    "@rigel/utils": "^0.1.0"
+    "@rigel/utils": "^0.1.0",
+    "Logger": "^0.0.0",
+    "logger": "^0.0.1"
   }
 }

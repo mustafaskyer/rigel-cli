@@ -12,5 +12,9 @@
     "@rigel/commands": "^0.1.0",
     "@rigel/constants": "^0.1.0",
     "@rigel/logger": "^0.1.0"
+  },
+  "dependencies": {
+    "Logger": "^0.0.0",
+    "logger": "^0.0.1"
   }
 }
