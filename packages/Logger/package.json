@@ -6,7 +6,8 @@
   "main": "index.js",
   "author": "Mustafa Elsayed",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "@rigel/commands": "^0.1.0",
     "@rigel/constants": "^0.1.0"
   }

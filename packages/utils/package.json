@@ -10,7 +10,8 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0"
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "@rigel/commands": "^0.1.0",
     "@rigel/constants": "^0.1.0",
     "@rigel/logger": "^0.1.0"
