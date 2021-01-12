@@ -56,9 +56,7 @@
 		"lerna": "^3.22.1",
 		"mocha": "^7.0.0",
 		"prettier": "2.0.2",
-		"sinon": "^8.1.0"
-	},
-	"peerDependencies": {
+		"sinon": "^8.1.0",
 		"@rigel/utils": "^1.0.0",
 		"@rigel/commands": "^1.0.0",
 		"@rigel/logger": "^1.0.0"

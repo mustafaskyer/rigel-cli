@@ -1,8 +1,11 @@
 {
   "packages": [
-    "packages/*"
+    "packages/commands",
+    "packages/constants",
+    "packages/Logger",
+    "packages/utils"
   ],
   "version": "1.2.0",
-  "npmClient": "npm",
-  "useWorkspaces": false
+  "npmClient": "yarn",
+  "useWorkspaces": true
 }
