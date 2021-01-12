@@ -2,11 +2,11 @@
   "name": "@rigel/constants",
   "version": "0.0.3",
   "description": "Rigel CLI Constants",
+  "private": "false",
   "main": "index.js",
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "dependencies": {
     "@rigel/commands": "^0.0.3"
-  },
-  "gitHead": "6c54d923670df8f2c3626a23cd81b0ec70e26240"
+  }
 }

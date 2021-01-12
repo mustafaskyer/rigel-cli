@@ -1,6 +1,7 @@
 {
   "name": "@rigel/logger",
   "version": "0.0.3",
+  "private": "false",
   "description": "Logger for messages",
   "main": "index.js",
   "author": "Mustafa Elsayed",
@@ -8,6 +9,5 @@
   "dependencies": {
     "@rigel/commands": "^0.0.3",
     "@rigel/constants": "^0.0.3"
-  },
-  "gitHead": "6c54d923670df8f2c3626a23cd81b0ec70e26240"
+  }
 }
