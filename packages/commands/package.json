@@ -9,5 +9,6 @@
     "@rigel/constants": "^0.0.1",
     "@rigel/logger": "^0.0.1",
     "@rigel/utils": "^0.0.1"
-  }
+  },
+  "gitHead": "01eab749333acc4c30be2c1634093fbbee5f0815"
 }

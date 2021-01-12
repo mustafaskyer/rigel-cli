@@ -7,5 +7,6 @@
   "license": "MIT",
   "dependencies": {
     "@rigel/commands": "^0.0.1"
-  }
+  },
+  "gitHead": "01eab749333acc4c30be2c1634093fbbee5f0815"
 }
