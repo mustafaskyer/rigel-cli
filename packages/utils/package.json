@@ -1,6 +1,6 @@
 {
   "name": "@rigel/utils",
-  "version": "^1.0.0",
+  "version": "1.1.0",
   "private": "false",
   "description": "Utilities for rigelcli app",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0"
   },
-  "dependencies": {},
   "peerDependencies": {
     "@rigel/commands": "^0.1.0",
     "@rigel/constants": "^0.1.0",
