@@ -26,12 +26,12 @@ exports.addComponent = async (name) => {
 	const sourcetemplate = compile(compRnSource);
 	const _content = sourcetemplate({ name, date: new Date() });
 	gFile({ path, name, type: 'component', content: _content });
-	jetpack.append(`${path}/index.js`, `export { ${name} } from './${name}.component'`);
+	jetpack.append(`${path}/index.components.js`, `export { ${name} } from './${name}.component'`);
 	shell.exec(`code App/components/${name}.component.js`, (code, stdout, stderr) => {
 		if (code === 0) {
 			spin.info('file opened at vscode ✅');
 		}
 	});
 	spin.succeed(` - successfully added ${name} @ App/components/${name}.component`);
-	spin.info(` - usage: import { ${name} } from '@comps'; `);
+	spin.info(` - usage: import { ${name} } from '@components'; `);
 };
