@@ -43,9 +43,10 @@
 		"slash": "^3.0.0",
 		"upper-case-first": "^2.0.1",
 		"which": "^2.0.2",
-		"@rigel/utils": "^1.0.0",
-		"@rigel/commands": "^1.0.0",
-		"@rigel/logger": "^1.0.0"
+		"@rigel/utils": "1.2.2",
+		"@rigel/commands": "1.2.2",
+		"@rigel/logger": "1.2.2",
+		"@rigel/constants": "1.2.2"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.10.5",

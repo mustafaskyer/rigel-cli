@@ -6,7 +6,7 @@
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "dependencies": {
-    "@rigel/commands": "^0.1.0",
-    "@rigel/constants": "^0.1.0"
+    "@rigel/commands": "1.2.2",
+    "@rigel/constants": "1.2.2"
   }
 }

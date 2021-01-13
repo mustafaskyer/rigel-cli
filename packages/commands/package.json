@@ -6,8 +6,8 @@
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "dependencies": {
-    "@rigel/constants": "^0.1.0",
-    "@rigel/logger": "^0.1.0",
-    "@rigel/utils": "^0.1.0"
+    "@rigel/constants": "1.2.2",
+    "@rigel/logger": "1.2.2",
+    "@rigel/utils": "1.2.2"
   }
 }
