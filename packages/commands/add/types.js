@@ -1,4 +1,4 @@
-const { findPath, checkIfExist, gFile, appendToFile, formatFile } = require('@rigel/utils');
+const { findPath, checkIfExist, gFile, appendToFile, formatFile } = require('@mustafaskyer/rigel-utils');
 const { compile } = require('handlebars');
 
 const { typesRnSource } = require('./templates/types.temp');

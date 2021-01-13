@@ -1,5 +1,5 @@
 {
-  "name": "@rigel/utils",
+  "name": "@mustafaskyer/rigel-utils",
   "version": "1.2.4",
   "description": "Utilities for rigelcli app",
   "main": "index.js",
@@ -10,9 +10,12 @@
     "@babel/preset-env": "^7.11.0"
   },
   "dependencies": {
-    "@rigel/commands": "^1.2.4",
-    "@rigel/constants": "^1.2.4",
-    "@rigel/logger": "^1.2.4"
+    "@mustafaskyer/rigel-commands": "^1.2.4",
+    "@mustafaskyer/rigel-constants": "^1.2.4",
+    "@mustafaskyer/rigel-logger": "^1.2.4"
   },
-  "gitHead": "a6b51ba9f73b9dc240bd3369eddeca225289f6ac"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "d2738807146b7801a477a3d637ac3d8fcf51f2c5"
 }

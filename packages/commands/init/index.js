@@ -1,12 +1,12 @@
 const shell = require('shelljs');
 const os = require('os');
-const { cloneAndRenameApp } = require('@rigel/utils/commands');
-const { which, checkNpmYarn } = require('@rigel/utils');
+const { cloneAndRenameApp } = require('@mustafaskyer/rigel-utils/commands');
+const { which, checkNpmYarn } = require('@mustafaskyer/rigel-utils');
 const PrettyError = require('pretty-error');
 figlet = require('figlet');
 const pe = new PrettyError();
 const ora = require('ora');
-const { success, info } = require('@rigel/logger');
+const { success, info } = require('@mustafaskyer/rigel-logger');
 
 async function init(name, options) {
 	/**

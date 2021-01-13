@@ -1,7 +1,7 @@
 const PrettyError = require('pretty-error');
 const pe = new PrettyError();
 const which = require('which');
-const { error } = require('@rigel/logger');
+const { error } = require('@mustafaskyer/rigel-logger');
 const ora = require('ora')
 
 exports.whichPkg = (name,message) => {

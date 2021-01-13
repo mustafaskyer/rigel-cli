@@ -1,13 +1,16 @@
 {
-  "name": "@rigel/logger",
+  "name": "@mustafaskyer/rigel-logger",
   "version": "1.2.4",
   "description": "Logger for messages",
   "main": "index.js",
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "dependencies": {
-    "@rigel/commands": "^1.2.4",
-    "@rigel/constants": "^1.2.4"
+    "@mustafaskyer/rigel-commands": "^1.2.4",
+    "@mustafaskyer/rigel-constants": "^1.2.4"
   },
-  "gitHead": "a6b51ba9f73b9dc240bd3369eddeca225289f6ac"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "d2738807146b7801a477a3d637ac3d8fcf51f2c5"
 }

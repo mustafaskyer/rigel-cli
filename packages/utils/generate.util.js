@@ -3,7 +3,7 @@
 
 const shell = require('shelljs')
 const jetpack = require('fs-jetpack')
-const { warning } = require('@rigel/logger')
+const { warning } = require('@mustafaskyer/rigel-logger')
 const PrettyError = require('pretty-error')
 const pe = new PrettyError()
 
