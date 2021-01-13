@@ -21,6 +21,7 @@ async function init(name, options) {
 	/** Check if git is installed */
 	try {
 		await which('git', 'git not installed');
+		// await which('react-native', 'react native not installed');
 		await which('watchman', 'watchman not installed');
 	} catch (e) {
 		// console.log('#####################', e);
