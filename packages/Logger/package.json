@@ -8,5 +8,6 @@
   "dependencies": {
     "@rigel/commands": "^1.2.3",
     "@rigel/constants": "^1.2.3"
-  }
+  },
+  "gitHead": "a6b51ba9f73b9dc240bd3369eddeca225289f6ac"
 }
