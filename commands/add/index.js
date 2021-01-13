@@ -1,4 +1,4 @@
-const { warning, error } = require('@mustafaskyer/rigel-logger');
+const { warning, error } = require('../../logger/index');
 
 
 const { addComponent } = require('./component');

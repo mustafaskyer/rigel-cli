@@ -1,5 +1,5 @@
-const { MAIN_REPO_GIT } = require('@mustafaskyer/rigel-constants');
-const { info, warning, success, error } = require('@mustafaskyer/rigel-logger');
+const { MAIN_REPO_GIT } = require('../constants/index');
+const { info, warning, success, error } = require('../logger/index');
 const ora = require('ora');
 const shell = require('shelljs');
 const fs = require('fs');

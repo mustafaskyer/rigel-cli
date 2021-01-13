@@ -1,4 +1,4 @@
-const { findPath, checkIfExist, gFile, appendToFile, formatFile } = require('@mustafaskyer/rigel-utils');
+const { findPath, checkIfExist, gFile, appendToFile, formatFile } = require('../../utils/index');
 const { compile } = require('handlebars');
 const jetpack = require('fs-jetpack');
 const ora = require('ora');

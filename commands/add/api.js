@@ -7,7 +7,7 @@
 * incase added new file, should export it from apis index
 * suggest to import it in saga || screen || component
  */
-const { findPath, checkIfExist, gFile, prompt, appendToFile, formatFile } = require('@mustafaskyer/rigel-utils');
+const { findPath, checkIfExist, gFile, prompt, appendToFile, formatFile } = require('../../utils/index');
 const { apiRnSource } = require('./templates/api.temp');
 const { compile } = require('handlebars');
 

@@ -9,11 +9,11 @@ const ora = require('ora');
 const slash = require('slash');
 const minimist = require('minimist');
 
-const { init, add } = require('@mustafaskyer/rigel-commands');
+const { init, add } = require('../commands/index');
 
 const nodeV = require('../package.json').engines.node;
-const { checkNodeV, cleanArgs } = require('@mustafaskyer/rigel-utils');
-const { warning } = require('@mustafaskyer/rigel-logger');
+const { checkNodeV, cleanArgs } = require('../utils/index');
+const { warning } = require('../logger/index');
 
 /**
  * First of All, check node version (incase out of date)

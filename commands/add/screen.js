@@ -1,4 +1,4 @@
-const { findPath, checkIfExist, getLsAnswers, gDir, gFile, appendToFile } = require('@mustafaskyer/rigel-utils');
+const { findPath, checkIfExist, getLsAnswers, gDir, gFile, appendToFile } = require('../../utils/index');
 const { compile } = require('handlebars');
 const jetpack = require('fs-jetpack');
 const ora = require('ora');
@@ -31,7 +31,6 @@ exports.addScreen = async (name, options) => {
 		process.exit();
 	}
 	const checkStatus = await checkIfExist(path, name, 'screen');
-	// console.log('@isScreenExist', checkStatus);
 	if (checkStatus) {
 		console.log(pe.render(`${name} already exist, can't add ${name} directory!!`));
 		process.exit();

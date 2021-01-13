@@ -9,6 +9,7 @@ const { ls, getLsAnswers } = require('./ls');
 const { prompt } = require('./inqurier.util')
 const appendToFile = require('./append.util')
 const { formatFile } = require('./format.util')
+const { cloneAndRenameApp } = require('./clone.util')
 
 module.exports = {
 	checkNodeV,
@@ -25,5 +26,6 @@ module.exports = {
 	getLsAnswers, // get answers of selected list of files
     prompt, //
 	appendToFile,
-	formatFile
+	formatFile,
+	cloneAndRenameApp
 };
