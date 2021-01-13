@@ -1,12 +1,12 @@
 {
   "name": "@rigel/logger",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Logger for messages",
   "main": "index.js",
   "author": "Mustafa Elsayed",
   "license": "MIT",
   "dependencies": {
-    "@rigel/commands": "1.2.2",
-    "@rigel/constants": "1.2.2"
+    "@rigel/commands": "^1.2.3",
+    "@rigel/constants": "^1.2.3"
   }
 }

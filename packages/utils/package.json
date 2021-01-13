@@ -1,6 +1,6 @@
 {
   "name": "@rigel/utils",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Utilities for rigelcli app",
   "main": "index.js",
   "author": "Mustafa Elsayed",
@@ -10,8 +10,8 @@
     "@babel/preset-env": "^7.11.0"
   },
   "dependencies": {
-    "@rigel/commands": "1.2.2",
-    "@rigel/constants": "1.2.2",
-    "@rigel/logger": "1.2.2"
+    "@rigel/commands": "^1.2.3",
+    "@rigel/constants": "^1.2.3",
+    "@rigel/logger": "^1.2.3"
   }
 }
