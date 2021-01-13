@@ -10,7 +10,7 @@
 	"scripts": {
 		"test": "node_modules/.bin/mocha"
 	},
-	"version": "2.4.2",
+	"version": "2.4.3",
 	"license": "MIT",
 	"dependencies": {
 		"chalk": "^3.0.0",
@@ -38,7 +38,8 @@
 		"shelljs": "^0.8.3",
 		"slash": "^3.0.0",
 		"upper-case-first": "^2.0.1",
-		"which": "^2.0.2"
+		"which": "^2.0.2",
+		"prettier": "^2.2.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.10.5",
@@ -51,7 +52,6 @@
 		"babel-preset-es2015": "^6.24.1",
 		"chai": "^4.2.0",
 		"mocha": "^7.0.0",
-		"prettier": "^2.2.1",
 		"sinon": "^8.1.0"
 	},
 	"engines": {
