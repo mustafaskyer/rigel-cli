@@ -1,8 +1,5 @@
 {
 	"name": "rigel-cli",
-	"workspaces": [
-		"packages/*"
-	],
 	"bin": {
 		"rigel": "./bin/rigel.js"
 	},
