@@ -62,12 +62,12 @@ exports.addScreen = async (name, options) => {
 		appendToFile(`${path}/${name}/${name}.screen.js`, [ ';' ], `import {} from '@actions'`);
 	}
 
-	shell.exec(`code App/screens/${name}.screen.js`, (code, stdout, stderr) => {
+	spin.succeed(` - successfully added ${name} @ App/components/${name}.component`);
+	spin.info(` - usage: import { ${name} } from '@comps'; `);
+
+	shell.exec(`code App/screens/${name}/${name}.screen.js`, (code, stdout, stderr) => {
 		if (code === 0) {
 			spin.info('file opened at vscode ✅');
 		}
 	});
-
-	spin.succeed(` - successfully added ${name} @ App/components/${name}.component`);
-	spin.info(` - usage: import { ${name} } from '@comps'; `);
 };

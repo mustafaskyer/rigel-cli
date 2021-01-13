@@ -4,33 +4,29 @@ exports.screenRnSource = `
 */
 
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-
 import { connect } from 'react-redux';
+import {} from '@selectors'; // redux selectors
+import {} from '@actions'; // redux actions
 
-import publicStyles, { rw, rh, appcolor } from 'styles'
-import typography from 'styles/typography'
-
-import styles from './{{styleName}}.styles';
+import { rw,rh, srw, srh, srd } from '@meterics'
+import { TextSm } from '@styled'
+import { ContainerBox } from './{{name}}.styles';
 
 
 const {{name}}Screen = (props) => {
 
     const [state, setState] = useState(null)
     useEffect(() => {
-
-		/** DidMount */
-
+        
+        /** DidMount */
+        
 		return () => { /** UnMounted */ }
-
 	},[])
 	
     return(
-        <View style={publicStyles.container}>
-            <View style={styles.container}>
-                <Text>{'{{name}} Screen'}</Text>
-            </View>
-        </View>
+        <ContainerBox>
+            <TextSm variant={'appColor'}>{'{{name}} Screen'}</TextSm>
+        </ContainerBox>
     )
 }
 
