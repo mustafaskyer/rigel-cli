@@ -16,8 +16,8 @@ exports.addScreen = async (name, options) => {
 	if (options.imc) {
 		const answers = await getLsAnswers({ path: 'App/components', name, type: 'component' });
 		opts.imc = answers;
-		opts.imc.push('Spacer');
-		opts.imc.push('Row');
+		// opts.imc.push('Spacer');
+		// opts.imc.push('Row');
 	}
 
 	if (options.imac) {
@@ -53,9 +53,9 @@ exports.addScreen = async (name, options) => {
 	// should check opts and add imc, imac answers if exists :-
 	if (opts.imc) {
 		const o = opts.imc.join(', ');
-		appendToFile(`${path}/${name}/${name}.screen.js`, [ ';' ], `import { ${o} } from '@comps'`);
+		appendToFile(`${path}/${name}/${name}.screen.js`, [ ';' ], `import { ${o} } from '@components'`);
 	} else {
-		appendToFile(`${path}/${name}/${name}.screen.js`, [ ';' ], `import { Spacer, Row } from '@comps'`);
+		appendToFile(`${path}/${name}/${name}.screen.js`, [ ';' ], `import { Spacer, Row } from '@components'`);
 	}
 
 	if (opts.imac) {
@@ -63,7 +63,7 @@ exports.addScreen = async (name, options) => {
 	}
 
 	spin.succeed(` - successfully added ${name} @ App/components/${name}.component`);
-	spin.info(` - usage: import { ${name} } from '@comps'; `);
+	spin.info(` - usage: import { ${name} } from '@components'; `);
 
 	shell.exec(`code App/screens/${name}/${name}.screen.js`, (code, stdout, stderr) => {
 		if (code === 0) {

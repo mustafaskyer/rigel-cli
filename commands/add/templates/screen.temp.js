@@ -9,7 +9,7 @@ import {} from '@selectors'; // redux selectors
 import {} from '@actions'; // redux actions
 
 import { rw,rh, srw, srh, srd } from '@meterics'
-import { TextSm } from '@styled'
+import { Styled, Row } from '@styled'
 import { ContainerBox } from './{{name}}.styles';
 
 
