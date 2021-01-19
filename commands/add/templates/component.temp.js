@@ -4,22 +4,18 @@ exports.compRnSource = `
 */
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import publicStyles, {  } from '@styles';
+import { Text } from 'react-native';
+import styled from 'styled-components/native'
+import { View, Row, Spacer } from '@styled'
+import {rw,rh} from '@meterics'
+import {color} from '@colors'
 
 export const {{name}} = (props) => {
    return(
-       <View style={styles.container}>
+       <ViewContainer>
            <Text>{'{{name}} Component'}</Text>
-       </View>
+       </ViewContainer>
    )
 }
-
-const styles = StyleSheet.create({
-   container: {
-       flex:1,
-       justifyContent: 'center',
-       alignItems: 'center'
-   }
-})
+const ViewContainer = styled(View)``
 `
