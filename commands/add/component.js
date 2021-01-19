@@ -26,7 +26,7 @@ exports.addComponent = async (name) => {
 	const sourcetemplate = compile(compRnSource);
 	const _content = sourcetemplate({ name, date: new Date() });
 	gFile({ path, name, type: 'component', content: _content });
-	jetpack.append(`${path}/index.components.js`, `export { ${name} } from './${name}.component'`);
+	jetpack.append(`${path}/index.components.js`, `export { ${name} } from './${name}.component';\n`);
 	shell.exec(`code App/components/${name}.component.js`, (code, stdout, stderr) => {
 		if (code === 0) {
 			spin.info('file opened at vscode ✅');
