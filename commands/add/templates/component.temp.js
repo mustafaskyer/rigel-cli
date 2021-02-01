@@ -16,6 +16,4 @@ export const {{name}} = (props) => {
            <Text>{'{{name}} Component'}</Text>
        </ViewContainer>
    )
-}
-const ViewContainer = styled(View)``
-`
+}`+"\nconst ViewContainer = styled(View)``\n"
