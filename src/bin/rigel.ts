@@ -3,7 +3,7 @@
 import program from 'commander';
 const minimist = require('minimist');
 
-const { init, add } = require('../commands/index');
+import { add, init } from '../commands/index';
 
 const nodeV = require('../../package.json').engines.node;
 const { checkNodeV, cleanArgs } = require('../utils/index');
@@ -93,6 +93,7 @@ program
       }
     }
 
+    console.log('@add', typeof add);
     add({ type, name, options });
   });
 

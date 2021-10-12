@@ -11,22 +11,25 @@ export function findPath(path: string): { status?: boolean; message?: string; pa
     }
 
     if (jetpack.exists('.rigel')) {
-      let isTypeScript = jetpack.exists('tsconfig.json');
-      let isMobile;
-      let isWeb;
+      let typescript: boolean = false;
+      let mobile: boolean = false;
+      let web: boolean = false;
+      if (jetpack.exists('tsconfig.json')) {
+        typescript = true;
+      }
       if (jetpack.exists('android') && jetpack.exists('ios')) {
-        isMobile = true;
+        mobile = true;
       } else {
         if (jetpack.exists('public/index.html')) {
-          isWeb = true;
+          web = true;
         }
       }
       return {
         status: true,
-        typescript: isTypeScript,
-        mobile: isMobile,
-        web: isWeb,
-        path: `${process.cwd()}/App/${path}`,
+        typescript,
+        mobile,
+        web,
+        path: `${process.cwd()}/${web ? 'src' : 'App'}/${path}`,
         message: 'success',
       };
     }

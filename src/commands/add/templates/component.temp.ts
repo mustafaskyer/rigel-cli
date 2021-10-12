@@ -1,20 +1,39 @@
-export const compRnSource: string =
-  `
+export const compRnSource: string = `
 /*
 * created {{name}} component at {{date}} 
 */
 
 import React from 'react';
-import { Text } from 'react-native';
-import styled from 'styled-components/native'
-import { View, Row, Spacer } from '@styled'
-import {rw,rh} from '@meterics'
-import {color} from '@colors'
+import { /** View, Row, Spacer, ...others */ } from 'components'
+import { {{name}}Container } from './{{name}}.styles';
+import { /** rw, rh, srw, srh, srd, rwa, rha */ } from 'meterics'
+import {/** color */} from 'colors'
 
 export const {{name}} = (props) => {
    return(
-       <ViewContainer>
-           <Text>{'{{name}} Component'}</Text>
-       </ViewContainer>
+       <{{name}}Container variant={'white'}>
+        {/** ADD YOU STAFF HERE */}
+       </{{name}}Container>
    )
-}` + '\n\nconst ViewContainer = styled(View)``\n';
+}`;
+
+export const componentTypeScript: string = `
+/*
+* created {{name}} component at {{date}} 
+*/
+
+import React from 'react';
+import { /** View, Row, Spacer, ...others */ } from 'components'
+import { {{name}}Container } from './{{name}}.styles';
+import { /** rw, rh, srw, srh, srd, rwa, rha */ } from 'meterics'
+import {/** color */} from 'colors'
+
+interface I{{name}}Props {}
+
+export const {{name}}:React.FC<I{{name}}Props> = (props: I{{name}}Props): React.ReactElement => {
+   return(
+       <{{name}}Container variant={'white'}>
+          {/** ADD YOU STAFF HERE */}
+       </{{name}}Container>
+   )
+}`;

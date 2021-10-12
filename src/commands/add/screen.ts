@@ -9,12 +9,14 @@ const pe = new PrettyError();
 import { screenRnSource } from './templates/screen.temp';
 import { stylesRnSources } from './templates/styles.temp';
 
-exports.addScreen = async (
+export const addScreen = async (
   name: string,
-  options: {
-    imc?: string;
-    imac?: string;
-  },
+  options:
+    | {
+        imc?: string;
+        imac?: string;
+      }
+    | any,
 ) => {
   const spin = ora();
   const opts: any = {};
