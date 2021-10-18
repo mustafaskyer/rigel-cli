@@ -10,6 +10,9 @@ export function checkIfExist(path: string, name: string, type: string, typescrip
    */
   try {
     if (typescript) {
+      if (type === 'slice' || type === 'api') {
+        return Promise.resolve(jetpack.existsAsync(`${path}/${name}.${type}.ts`));
+      }
       return Promise.resolve(jetpack.existsAsync(`${path}/${name}.${type}.tsx`));
     } else {
       return Promise.resolve(jetpack.existsAsync(`${path}/${name}.${type}.js`));
