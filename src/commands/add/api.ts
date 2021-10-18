@@ -7,75 +7,50 @@
  * incase added new file, should export it from apis index
  * suggest to import it in saga || screen || component
  */
-import { findPath, gFile, prompt, appendToFile, formatFile } from '../../utils/index';
-import { apiRnSource } from './templates/api.temp';
+import { findPath, gFile, checkIfExist } from '../../utils/index';
+import { apiTempJs, apiTempTs } from './templates/api.temp';
 const { compile } = require('handlebars');
-
+const jetpack = require('fs-jetpack');
 const PrettyError = require('pretty-error');
 const pe = new PrettyError();
 
 export const addApi = async (name: string, options: any) => {
-  for (let i = 0; i < options.exports.length; i++) {
-    // const urlAnswer = await prompt({
-    // 	options: options.exports,
-    // 	message: `please enter a vaild url for ${options.exports[i]}`,
-    // 	name,
-    // 	type: 'input'
-    // });
-    const rgx = /^[a-z ,.'-]+$/i;
-    const isMatch = String(options.exports[i]).match(rgx);
-    if (isMatch === null) {
-      console.log(pe.render(`invalid parameter name!! ${options.exports[i]}`));
-      process.exit();
-    }
-    const urlAnswer = options.exports[i];
-
-    const typeAnswer = await prompt({
-      choices: ['Async/Await', '*/yield'],
-      message: `select which type of func you'd export to ${options.exports[i]}`,
-      name,
-      type: 'list',
-    });
-
-    const methodAnswer = await prompt({
-      choices: ['get', 'post', 'put', 'delete', 'patch'],
-      message: `select which type of methods you'd export to ${options.exports[i]}`,
-      name,
-      type: 'list',
-    });
-    const { status, message, path } = findPath(`apis/${name}`);
-    const sourcetemplate = compile(apiRnSource);
-    if (typeAnswer === 'Async/Await') {
-      const content = sourcetemplate({
-        name: urlAnswer,
-        date: new Date(),
-        function: 'async function',
-        url: urlAnswer,
-        method: `await api.${methodAnswer}(url, {...reqBody})`,
-      });
-      gFile({
-        path: `${path}`,
-        name: options.exports[i],
-        type: 'api',
-        content,
-      });
-    } else if (typeAnswer === '*/yield') {
-      const content = sourcetemplate({
-        name: urlAnswer,
-        date: new Date(),
-        function: 'function*',
-        url: urlAnswer,
-        method: `yield api.${methodAnswer}(url, {...reqBody})`,
-      });
-      gFile({
-        path: `${path}`,
-        name: options.exports[i],
-        type: 'api',
-        content,
-      });
-    }
-    const { path: apisIndexPath } = findPath(`apis/index.apis.js`);
-    await appendToFile(apisIndexPath, [';', ''], `export { ${urlAnswer} } from './${name}/${options.exports[i]}.api'`);
-    await formatFile(apisIndexPath);
+  console.log('@options', options);
+  const { dir, url, method = 'GET', type = 'async' } = options;
+  if (!dir) {
+    console.log(pe.render(`please specify --dir=dirName`));
+    process.exit();
   }
+
+  if (!url) {
+    console.log(pe.render(`please specify --url=urlName`));
+    process.exit();
+  }
+
+  const { status, path, typescript, mobile, web } = findPath(`services`);
+  if (!status) {
+    console.log(pe.render(`something unexpected happened!!`));
+    process.exit();
+  }
+
+  console.log('@path', path);
+  console.log('@name', name);
+  const checkStatus = await checkIfExist(`${path}/${dir}`, name, 'api', typescript);
+  console.log('@check-status', checkStatus);
+  if (checkStatus) {
+    console.log(pe.render(`file ${name} already exist, can't add ${name}.component!!`));
+    process.exit();
+  }
+
+  const sContent = compile(typescript ? apiTempTs : apiTempJs);
+  const cContent = sContent({
+    interface: name.charAt(0).toUpperCase() + name.slice(1),
+    name: name,
+    date: new Date(),
+    method: String(method).toLowerCase(),
+    url,
+  });
+  const ext = typescript ? 'ts' : 'js';
+  gFile({ path: `${path}/${dir}`, name, type: 'api', content: cContent, ext: ext });
+  jetpack.append(`${path}/index.${ext}`, `export * from './${dir}/${name}.api';\n`);
 };
