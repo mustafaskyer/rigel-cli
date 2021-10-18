@@ -15,7 +15,6 @@ const PrettyError = require('pretty-error');
 const pe = new PrettyError();
 
 export const addApi = async (name: string, options: any) => {
-  console.log('@options', options);
   const { dir, url, method = 'GET', type = 'async' } = options;
   if (!dir) {
     console.log(pe.render(`please specify --dir=dirName`));
@@ -33,10 +32,7 @@ export const addApi = async (name: string, options: any) => {
     process.exit();
   }
 
-  console.log('@path', path);
-  console.log('@name', name);
   const checkStatus = await checkIfExist(`${path}/${dir}`, name, 'api', typescript);
-  console.log('@check-status', checkStatus);
   if (checkStatus) {
     console.log(pe.render(`file ${name} already exist, can't add ${name}.component!!`));
     process.exit();

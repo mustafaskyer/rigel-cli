@@ -36,7 +36,6 @@ export const add = async ({ type, name, options }: IAddProps) => {
     process.exit();
   }
 
-  console.log('@type', type);
   switch (type) {
     case 'component':
       addComponent(name);

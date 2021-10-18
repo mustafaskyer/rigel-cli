@@ -34,7 +34,6 @@ program
         "\n Info: You provided more than one argument. The first one will be used as the app's name, the rest are ignored.",
       );
     }
-    console.log('init ', name);
     // if (process.argv.includes('-g') || process.argv.includes('--git')) {}
     // init(name, options);
   });

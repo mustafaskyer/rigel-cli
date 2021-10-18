@@ -19,7 +19,6 @@ export const gFile = ({
   content: string;
   ext?: string;
 }) => {
-  console.log('@ext-from-gFile => ', ext);
   const pathExist = jetpack.exists(`${path}/${name}.${type}.${ext}`);
   if (pathExist) {
     warning(`file name exist, can't create file with ${name}.${type}`);
