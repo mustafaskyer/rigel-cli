@@ -76,6 +76,7 @@ program
   .option('--imact, --redux-action <action-name>', 'import action from redux-actions')
   .option('--se, --redux-action <action-name>', 'import file in the main app navigation')
   .option('--path <path-to-file>', 'import file in the main app navigation')
+  .option('--dir <dir-name>', 'select dir name to create insides, otherwise will create it')
   .option('--url <ur>', 'import file in the main app navigation')
   .option('--types <type_name>', 'import file in the main app navigation', (v: string) => v.split(','))
   .option('--actions <action>', 'import file in the main app navigation', (v: string) => v.split(','))
