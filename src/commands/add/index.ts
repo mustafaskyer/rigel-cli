@@ -3,8 +3,9 @@ import { addComponent } from './component';
 import { addScreen } from './screen';
 import { addRedux } from './redux';
 import { addApi } from './api';
+import { addSlice } from './slice';
 
-type TType = 'component' | 'screen' | 'action' | 'reducer' | 'saga' | 'selector' | 'redux' | 'api' | 'styles';
+type TType = 'component' | 'screen' | 'action' | 'reducer' | 'saga' | 'selector' | 'redux' | 'api' | 'styles' | 'slice';
 interface IAddProps {
   type: TType;
   name: string;
@@ -26,6 +27,7 @@ export const add = async ({ type, name, options }: IAddProps) => {
     selector: 'add selector into App/states/selectors',
     redux: 'add reducer, action, saga, selector, type',
     api: 'add api into App/apis',
+    slice: 'add new slice under App/states',
   };
 
   if (!types[type]) {
@@ -54,5 +56,9 @@ export const add = async ({ type, name, options }: IAddProps) => {
     case 'api':
       addApi(name, options);
       break;
+    case 'slice': {
+      addSlice(name);
+      return;
+    }
   }
 };
