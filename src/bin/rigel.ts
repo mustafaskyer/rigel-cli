@@ -92,8 +92,6 @@ program
         warning('\n Info: Multi arguments!. only consider first two args');
       }
     }
-
-    console.log('@add', typeof add);
     add({ type, name, options });
   });
 
