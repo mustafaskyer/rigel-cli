@@ -26,7 +26,7 @@ export const addApi = async (name: string, options: any) => {
     process.exit();
   }
 
-  const { status, path, typescript, mobile, web } = findPath(`services`);
+  const { status, path, typescript, mobile, web } = findPath(`services/apis`);
   if (!status) {
     console.log(pe.render(`something unexpected happened!!`));
     process.exit();
