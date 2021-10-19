@@ -5,21 +5,21 @@ export const sliceTempTs: string = `
 
 import {createSlice} from "@reduxjs/toolkit";
 
-export interface I{{name}} {}
+export interface I{{interface}} {}
 
-const initialState: I{{name}} = {}
+const initialState: I{{interface}} = {}
 
 const {{name}}Slice = createSlice({
     name: "{{name}}_slice",
     initialState,
     reducers: {
-        set: (state: I{{name}}, action: { payload: any }) => {},
-        get: (state: I{{name}}, action: { payload: any }) => {},
+        set{{name}}: (state: I{{interface}}, action: { payload: any }) => {},
+        get{{name}}: (state: I{{interface}}, action: { payload: any }) => {},
     }
 })
 
-export const {set, get} = {{name}}Slice.actions;
-export default {{name}}Slice;
+export const {set{{name}}, get{{name}}, } = {{name}}Slice.actions;
+export default {{name}}Slice.reducer;
 `;
 export const sliceTempJs: string = `
 /** 
@@ -34,11 +34,11 @@ const {{name}}Slice = createSlice({
     name: "{{name}}_slice",
     initialState,
     reducers: {
-        set: (state, action) => {},
-        get: (state, action) => {},
+        set{{name}}: (state, action) => {},
+        get{{name}}: (state, action) => {},
     }
 })
 
-export const {set, get} = {{name}}Slice.actions;
-export default {{name}}Slice;
+export const {set{{name}}, get{{name}}} = {{name}}Slice.actions;
+export default {{name}}Slice.reducer;
 `;

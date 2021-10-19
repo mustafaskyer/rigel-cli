@@ -4,7 +4,7 @@ const jetpack = require('fs-jetpack');
 import ora from 'ora';
 const shell = require('shelljs');
 const PrettyError = require('pretty-error');
-
+import { appendToFile } from '../../utils/append.util';
 import { sliceTempTs, sliceTempJs } from './templates/slict.temp';
 
 const pe = new PrettyError();
@@ -31,11 +31,27 @@ export const addSlice = async (name: string) => {
   }
 
   const sContent = compile(typescript ? sliceTempTs : sliceTempJs);
-  const cContent = sContent({ name, date: new Date() });
+  const cContent = sContent({
+    interface: name.charAt(0).toUpperCase() + name.slice(1),
+    name,
+    date: new Date(),
+  });
   const ext = typescript ? 'ts' : 'js';
-
   gFile({ path: `${path}/${name}`, name, type: 'slice', content: cContent, ext: ext });
   jetpack.append(`${path}/index.${ext}`, `export * from './${name}/${name}.slice';\n`);
+  await appendToFile(
+    `${path}/index.reducers.${ext}`,
+    [';'],
+    `import ${name}, { I${name.charAt(0).toUpperCase() + name.slice(1)} } from './${name}/${name}.slice';\n`,
+  );
+  await appendToFile(
+    `${path}/index.reducers.${ext}`,
+    ['interface StoreState {'],
+    `${name}: I${name.charAt(0).toUpperCase() + name.slice(1)};`,
+  );
+
+  await appendToFile(`${path}/index.reducers.${ext}`, ['combineReducers({'], `\t${name},`);
+
   shell.exec(`code ${path}/${name}/${name}.slice.${ext}`, (code: string | number, _stdout: any, _stderr: any) => {
     if (code === 0) {
       spin.info('file opened at vscode ✅');
