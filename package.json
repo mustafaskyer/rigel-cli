@@ -42,7 +42,7 @@
     "pretty-error": "^2.1.1",
     "request": "^2.88.0",
     "semver": "^7.3.2",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "slash": "^3.0.0",
     "upper-case-first": "^2.0.1",
     "which": "^2.0.2"
